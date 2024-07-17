@@ -1,0 +1,64 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class CustomerInfoApp extends JFrame {
+    private JTextField idField, lastNameField, firstNameField, phoneField;
+
+    public CustomerInfoApp() {
+        setTitle("Customer Information");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(400, 200);
+        setLocationRelativeTo(null);
+
+        // Create the panel to hold the customer information
+        JPanel panel = new JPanel(new GridLayout(4, 2, 10, 10));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        // Create the label and text field components
+        JLabel idLabel = new JLabel("ID:");
+        idField = new JTextField();
+        idField.setEditable(false);
+
+        JLabel lastNameLabel = new JLabel("Last Name:");
+        lastNameField = new JTextField();
+        lastNameField.setEditable(false);
+
+        JLabel firstNameLabel = new JLabel("First Name:");
+        firstNameField = new JTextField();
+        firstNameField.setEditable(false);
+
+        JLabel phoneLabel = new JLabel("Phone:");
+        phoneField = new JTextField();
+        phoneField.setEditable(false);
+
+        // Add the components to the panel
+        panel.add(idLabel);
+        panel.add(idField);
+        panel.add(lastNameLabel);
+        panel.add(lastNameField);
+        panel.add(firstNameLabel);
+        panel.add(firstNameField);
+        panel.add(phoneLabel);
+        panel.add(phoneField);
+
+        // Add the panel to the frame
+        add(panel, BorderLayout.CENTER);
+
+        // Populate the customer information
+        populateCustomerInfo();
+    }
+
+    private void populateCustomerInfo() {
+        idField.setText("1");
+        lastNameField.setText("Chenda");
+        firstNameField.setText("Sovisal");
+        phoneField.setText("0928889999");
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            CustomerInfoApp app = new CustomerInfoApp();
+            app.setVisible(true);
+        });
+    }
+}
